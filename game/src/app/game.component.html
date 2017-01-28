@@ -1,0 +1,22 @@
+<div>
+  <div>
+    {{title}}
+    <span id="moneyrate">{{data.status.moneyRate}}$</span>
+    <span id="totalMoney">{{data.status.totalMoney}}$</span>
+  </div>
+
+  <template class="members" ngFor [ngForOf]="data.members.ppl" let-item >
+    <div class="member">
+        Name: <span class="member__name">{{item.name}}</span>
+        Level: {{item.level}}
+        XP: {{item.XP}}
+        Next Level: {{item.nextXP}}
+        Rate: {{item.moneyRate}}
+        <button name="train" title="Train" (click)="trainMember(item.id);">Train</button>
+    </div>
+  </template>
+
+  <div *ngIf="data.status.totalMoney > data.members.meta.priceNewMember ">
+    <button (click)="hireNewMember()">Hire new board member</button>
+  </div>
+</div>
