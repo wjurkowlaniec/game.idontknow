@@ -1,22 +1,33 @@
 <div>
   <div>
-    {{title}}
-    <span id="moneyrate">{{data.status.moneyRate}}$</span>
-    <span id="totalMoney">{{data.status.totalMoney}}$</span>
+    $ps: <span id="moneyrate">{{g.status.moneyRate | number: '1.0' }}$</span>
+    Total money: <span id="totalMoney">{{g.status.totalMoney  | number: '1.0' }}$</span>
   </div>
 
-  <template class="members" ngFor [ngForOf]="data.members.ppl" let-item >
+  <template class="members" ngFor [ngForOf]="g.members.ppl" let-member >
     <div class="member">
-        Name: <span class="member__name">{{item.name}}</span>
-        Level: {{item.level}}
-        XP: {{item.XP}}
-        Next Level: {{item.nextXP}}
-        Rate: {{item.moneyRate}}
-        <button name="train" title="Train" (click)="trainMember(item.id);">Train</button>
+        Name: <span class="member__name">{{member.name}}</span>
+        Level: {{member.level}}
+        XP: {{member.XP  | number : "1.0-0" }}
+        Next Level: {{member.nextXP  | number : '1.0-0' }}
+        Rate: {{member.moneyRate  | number : '1.0-2' }}
+        <div *ngIf="member.XP >= member.nextXP">
+          <button name="lvlup" [disabled]="g.status.totalMoney < member.updateCost" (click)="updateMember(member.id)" >Level up! ({{member.updateCost}})</button>
+        </div>
+        <button name="train" title="Train" (click)="trainMember(member.id);">Train</button>
     </div>
   </template>
 
-  <div *ngIf="data.status.totalMoney > data.members.meta.priceNewMember ">
+  <div *ngIf="g.status.totalMoney > g.members.meta.priceNewMember ">
     <button (click)="hireNewMember()">Hire new board member</button>
   </div>
+
+
+</div>
+
+<div >
+
+  <button (click)="localStorage_consoleInfo()">Localstorage</button>
+  <button (click)="saveGame()">Save game</button>
+  <button (click)="loadGame()">Load game</button>
 </div>
