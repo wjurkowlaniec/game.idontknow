@@ -1,14 +1,15 @@
-import { GamePage } from './app.po';
 
-describe('game App', function() {
-  let page: GamePage;
+import { ShrinkGamePage } from './app.po';
+
+describe('shrink-game App', function() {
+  let page: ShrinkGamePage;
 
   beforeEach(() => {
-    page = new GamePage();
+    page = new ShrinkGamePage();
   })
 
-  it('should display message saying app works', () => {
-    page.navigateTo();
-    expect(page.getParagraphText()).toEqual('game works!');
-  });
+  // it('should display message saying app works', () => {
+    // page.navigateTo();
+    // expect(page.getParagraphText()).toEqual('shrink-game works!');
+  // });
 });

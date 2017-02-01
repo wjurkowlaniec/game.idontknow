@@ -1,2 +1,2 @@
 export {environment} from './environment';
-export {GameAppComponent} from './game.component';
+export {ShrinkGameAppComponent} from './shrink-game.component';

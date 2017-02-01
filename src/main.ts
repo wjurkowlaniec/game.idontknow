@@ -1,11 +1,9 @@
 import { bootstrap } from '@angular/platform-browser-dynamic';
 import { enableProdMode } from '@angular/core';
-import { GameAppComponent, environment } from './app/';
-
-
+import { ShrinkGameAppComponent, environment } from './app/';
 
 if (environment.production) {
   enableProdMode();
 }
 
-bootstrap(GameAppComponent);
+bootstrap(ShrinkGameAppComponent);

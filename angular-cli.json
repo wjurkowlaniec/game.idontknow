@@ -1,7 +1,7 @@
 {
   "project": {
-    "version": "0.1.0",
-    "name": "game"
+    "version": "0.0.39",
+    "name": "shrink-game"
   },
   "apps": [
     {"main": "src/main.ts", "tsconfig": "src/tsconfig.json"}
